@@ -29,13 +29,17 @@ foreach ($server in $servers)
     Test-Connection $server -Count 1
 }
 
-$computers = @(
-"PC01",
-"PC02",
-"PC03"
-)
-
-foreach($computer in $computers)
-{
-    Invoke-Command -ComputerName $computer
+#students marks analyzer
+$marks = @(65,78,90,45,88,91,56,72)
+write-host ========== students marks ==========
+foreach($mark in $marks){
+    write-host $mark
 }
+$totalstu = $marks.Count 
+write-host "total no of students : $totalstu"
+$total = 0
+foreach($mark in $marks){
+    $total = $total + $mark
+}
+write-host "total marks of students is $total"
+write-host "average marks = $($total / $totalstu)"
